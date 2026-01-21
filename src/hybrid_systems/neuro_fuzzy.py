@@ -248,7 +248,7 @@ class ANFIS:
                     self.consequent_params[i] = np.linalg.lstsq(
                         weighted_X, y * normalized_strengths[:, i], rcond=None
                     )[0]
-                except:
+                except (np.linalg.LinAlgError, ValueError):
                     # If singular, use gradient descent
                     error = predictions - y
                     gradient = np.dot(

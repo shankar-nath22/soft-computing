@@ -315,7 +315,8 @@ class GANeuralFuzzy:
                 # Evaluate on validation set
                 accuracy = test_net.evaluate(X_val, y_val)
                 return accuracy
-            except:
+            except Exception as e:
+                # Return 0 fitness if training/evaluation fails
                 return 0.0
         
         # Setup GA

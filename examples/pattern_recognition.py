@@ -74,7 +74,8 @@ class GAFeatureSelection:
                 feature_penalty = n_selected / self.n_features * 0.1
                 
                 return accuracy - feature_penalty
-            except:
+            except Exception as e:
+                # Return 0 fitness if training fails
                 return 0.0
         
         return evaluate

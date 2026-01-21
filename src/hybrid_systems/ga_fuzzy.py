@@ -207,7 +207,8 @@ class GAFuzzy:
         try:
             fitness = self.control_function(fs)
             return fitness if not np.isnan(fitness) else 0.0
-        except:
+        except Exception as e:
+            # Return 0 fitness if evaluation fails
             return 0.0
     
     def optimize(
