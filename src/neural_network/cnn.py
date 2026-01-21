@@ -9,6 +9,10 @@ try:
     TF_AVAILABLE = True
 except ImportError:
     TF_AVAILABLE = False
+    # Create dummy classes to avoid import errors
+    class keras:
+        class Model:
+            pass
     print("Warning: TensorFlow not available. CNN functionality will be limited.")
 
 
